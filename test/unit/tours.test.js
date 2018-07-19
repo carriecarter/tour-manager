@@ -1,6 +1,6 @@
 const chai = require('chai');
 const { assert } = chai;
-const { getErrors } = require('./helpers');
+// const { getErrors } = require('./helpers');
 const Tour = require('../../lib/models/tour');
 
 describe('Tour model', () => {
