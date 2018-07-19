@@ -8,18 +8,18 @@ describe('Tour model', () => {
     it('validates good model', () => {
         const data = {
             title: 'Circus Time',
-            activities: 'Donny Vomit', 
-            
+            activities: 'Donny Vomit',
+            launchDate: new Date(2018, 7, 18), 
             stop: [{
-                location: [{
+                location: {
                     city: 'OKC',
                     state: 'OK',
                     zip: 74701
-                }],
-                weather: [{
+                },
+                weather: {
                     temperature: 112,
                     condition: 'sunny'
-                }],
+                },
                 attendance: 150
             }]
         };
@@ -28,11 +28,10 @@ describe('Tour model', () => {
 
         const json = tour.toJSON();
         delete json._id;
-        json.tour.forEach(t => delete t._id);
+        console.log('HEY JSON', json);
+        json.stop.forEach(t => delete t._id);
         assert.deepEqual(json, data);
         assert.isUndefined(tour.validateSync());
 
     });
-
-
 });
