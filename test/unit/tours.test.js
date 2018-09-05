@@ -28,7 +28,7 @@ describe('Tour model', () => {
 
         const json = tour.toJSON();
         delete json._id;
-        console.log('HEY JSON', json);
+        // console.log('HEY JSON', json);
         json.stop.forEach(t => delete t._id);
         assert.deepEqual(json, data);
         assert.isUndefined(tour.validateSync());
